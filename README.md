@@ -5,7 +5,7 @@ HDSC405 Deep Learning, University of Zimbabwe: mini research project.
 
 **Research question:** Which features explain the asking prices of houses for sale in Zimbabwe, and how accurately can a model predict them?
 
-Author: _YOUR NAME_ (_R236009C_)
+Author: _Tanyaradzwa Mbonga_ (_R236009C_)
 Lecturer: Mr. P. Watambwa
 
 ---
