@@ -6,7 +6,7 @@ HDSC405 Deep Learning, University of Zimbabwe: mini research project.
 
 Author: Tanyaradzwa Mbonga (R236009C)
 Lecturer: Mr. P. Watambwa
-Report: `report/report.pdf`
+Report: `report/Predicting Asking Prices of Houses in Zimbabwe with Tabular, Image and Text Data.pdf`
 
 ---
 
