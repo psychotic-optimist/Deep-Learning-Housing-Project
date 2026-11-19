@@ -1,4 +1,6 @@
-
+"""Rebuild data/details.jsonl from the saved HTML in data/raw/listings (no downloads).
+Run after changing parse_listing.py:   python reparse.py   then   python Crawler.py build
+"""
 import json
 from pathlib import Path
 from parse_listing import parse_listing
@@ -10,7 +12,11 @@ if p.exists():
         r = json.loads(line); old[r["listing_id"]] = r.get("collected_at")
 
 out, bad = [], 0
-for f in sorted(Path("data/raw/listings").glob("*.html")):
+files = sorted(Path("data/raw/listings").glob("*.html"))
+print(f"parsing {len(files)} saved pages - this takes a few minutes, do not interrupt")
+for n, f in enumerate(files, 1):
+    if n % 100 == 0:
+        print(f"  {n}/{len(files)}")
     try:
         rec = parse_listing(f.read_text(encoding="utf-8"))
     except ValueError as e:

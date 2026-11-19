@@ -12,6 +12,12 @@ import sys
 
 from bs4 import BeautifulSoup
 
+try:                      # lxml is several times faster; falls back to html.parser
+    import lxml  # noqa: F401
+    PARSER = "lxml"
+except ImportError:
+    PARSER = "html.parser"
+
 
 def _walk(obj):
     """Yield every dict inside a nested JSON structure."""
@@ -37,7 +43,7 @@ def _float(x):
 
 
 def parse_listing(html):
-    soup = BeautifulSoup(html, "html.parser")
+    soup = BeautifulSoup(html, PARSER)
 
     # --- JSON-LD: pick the block that has price/about info
     ld = {}
@@ -126,7 +132,11 @@ def parse_listing(html):
                     amenities.append(t)
             break
 
-    description = ld.get("description") or _meta(soup, property="og:description") or ""
+    # full description is in div.article; JSON-LD only holds the first ~160 chars
+    art = soup.select_one("div.article")
+    description = (art.get_text(" ", strip=True) if art else "") \
+        or ld.get("description") or _meta(soup, property="og:description") or ""
+    description = re.sub(r"\s+", " ", description)
 
     return {
         "listing_id": listing_id,
