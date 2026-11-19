@@ -46,7 +46,7 @@ This repository contains the full pipeline for the project:
 │   └── raw/                  # saved HTML of every page fetched (not in Git)
 ├── images/               # photos; file names start with the listing ID
 ├── results/              # metrics tables, predictions, residual plots
-└── report/               # report (PDF) and figures
+└── report/               # Predicting Asking Prices of Houses in Zimbabwe with Tabular, Image and Text Data (PDF) and figures
 ```
 
 ## 3. Setup
