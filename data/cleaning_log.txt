@@ -1,0 +1,7 @@
+raw rows: 1988
+after dropping duplicate listing_id: 1988 rows left
+after dropping duplicate description+price+suburb: 1973 rows left
+after dropping 0 non-USD listings: 1973 rows left
+after removing 2 price outliers (|robust z|>4 on log price): 1962 rows left
+amenity flags kept: 35 -> ['main en suite', 'walled', 'fitted kitchen', 'borehole', 'tiled', 'verandah', 'good zesa', 'garden', 'water tank', 'municipal water', 'paved', 'garage', 'sewer system', 'solar system', 'fireplace', 'entertainment area', 'staff quarters', 'internet connection', 'electric gate', 'flatlet/cottage', 'carport', 'swimming pool', 'access control', 'main road frontage', '24hr security', 'storage room', 'study/office', 'double storey', 'electric fence', 'burglar alarm', 'intercom system', 'air conditioning', 'cctv surveillance', 'wheelchair accessibility', 'parking bay']
+saved data\houses_clean.csv with 1962 rows, 60 columns
